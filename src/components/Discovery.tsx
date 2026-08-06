@@ -220,7 +220,7 @@ export default function Discovery() {
       eyebrow="Discovery"
       title="Find a tool."
       description="Search by name or description, then narrow by language and type. Filters are shared in the URL."
-      className="bg-[#fafafa]"
+      className="bg-surface"
     >
       <Suspense fallback={<DiscoveryFallback />}>
         <DiscoveryPanel />

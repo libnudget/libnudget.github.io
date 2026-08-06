@@ -6,6 +6,7 @@
   --line: #ececec;
   --muted: #6b7280;
   --accent: #1f883d;
+  --surface: #fafafa;
   color-scheme: light;
 }
 
@@ -15,6 +16,7 @@
   --line: #30363d;
   --muted: #8b949e;
   --accent: #3fb950;
+  --surface: #161b22;
   color-scheme: dark;
 }
 
@@ -24,6 +26,7 @@
   --color-line: var(--line);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-surface: var(--surface);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
