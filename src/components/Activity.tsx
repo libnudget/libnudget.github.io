@@ -37,7 +37,7 @@ export default function Activity() {
               })
             ) : (
               <li className="py-3.5 text-sm text-muted">
-                No releases yet. The first public releases are in the works.
+                No releases to show yet.
               </li>
             )}
           </ul>
@@ -66,7 +66,7 @@ export default function Activity() {
               })
             ) : (
               <li className="py-3.5 text-sm text-muted">
-                Nothing here yet. Repositories are being scaffolded.
+                Nothing to show yet.
               </li>
             )}
           </ul>

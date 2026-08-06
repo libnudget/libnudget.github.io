@@ -347,7 +347,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/gon",
     overview:
       "A calm reusable workflow that gently reviews Dependabot pull requests and provides clear summaries to help you merge confidently.",
-    installation: "uses: libnudget/gon/.github/workflows/gon.yml@main",
+    installation: "- uses: libnudget/gon/.github/workflows/gon.yml@main",
     license: "MIT",
     status: "Stable",
     related: ["auto-merge"],

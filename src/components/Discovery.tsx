@@ -4,16 +4,16 @@ import Link from "next/link"
 import { useSearchParams, type ReadonlyURLSearchParams } from "next/navigation"
 import { Suspense, useMemo, useState } from "react"
 import Section from "./Section"
-import { projects, type Language } from "@/lib/projects"
+import { projects, languages, searchFilters, type Language } from "@/lib/projects"
 
-const languages: Language[] = ["Rust", "Go", "TypeScript", "Python"]
-const types = ["CLI", "GitHub Action", "Library", "Template"]
+const types = searchFilters.categories
 
 const typeParam: Record<string, string> = {
   CLI: "cli",
   "GitHub Action": "action",
   Library: "library",
   Template: "template",
+  Experiment: "experiment",
 }
 
 const typeByParam: Record<string, string> = Object.fromEntries(
