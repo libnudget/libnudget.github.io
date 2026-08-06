@@ -6,6 +6,7 @@ const buildDate = process.env.BUILD_DATE
 const links = [
   { href: "https://github.com/libnudget", label: "GitHub" },
   { href: "https://github.com/libnudget", label: "Documentation" },
+  { href: "https://github.com/palmshed", label: "A Palmshed company" },
   { href: licenseUrl, label: "License" },
   { href: "mailto:hello@libnudget.dev", label: "Contact" },
   { href: "/about/", label: "About" },

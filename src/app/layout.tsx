@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "libnudget — small tools that do one thing well",
+        alt: "libnudget: small tools that do one thing well",
       },
     ],
   },

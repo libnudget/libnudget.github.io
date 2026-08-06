@@ -9,9 +9,15 @@ A quiet home for small developer tools.
 
 This is the source for [https://libnudget.github.io](https://libnudget.github.io).
 
+libnudget is a company of [Palmshed](https://github.com/palmshed), the
+home of open-source AI tools, agents, and SDKs. Where Palmshed builds the
+ambitious things, libnudget keeps the small ones neat. The same way of
+working runs through both: build carefully, ship honestly, and stay easy
+to leave behind.
+
 ## Stack
 
-- [Next.js](https://nextjs.org) (App Router) with **static export** — no server
+- [Next.js](https://nextjs.org) (App Router) with **static export** (no server)
 - [Tailwind CSS](https://tailwindcss.com)
 - [TypeScript](https://www.typescriptlang.org)
 - Deployed to [GitHub Pages](https://pages.github.com) via GitHub Actions

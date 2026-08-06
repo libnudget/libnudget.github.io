@@ -5,7 +5,7 @@ import { principles } from "@/lib/projects"
 export const metadata: Metadata = {
   title: "About",
   description:
-    "libnudget is a collection of small tools for software engineering.",
+    "libnudget is a company of Palmshed; a collection of small tools for software engineering.",
 }
 
 export default function AboutPage() {
@@ -28,13 +28,33 @@ export default function AboutPage() {
       <div className="mx-auto w-full max-w-[1200px] px-6 py-12 lg:px-8 lg:py-16">
         <div className="max-w-2xl">
           <p className="text-lg leading-8 text-foreground/80">
-            libnudget is a collection of small tools for software engineering.
-            Every project is designed to solve one problem well and remain
+            Most projects start by promising a lot. libnudget started the
+            other way around, from the small things.
+          </p>
+          <p className="mt-4 text-base leading-7 text-muted">
+            A clipboard utility. A tagger. A nightly build. Nothing that
+            needs a bow on it, only work that can be trusted to hold. Every
+            project here is designed to solve one problem well and remain
             independently useful.
           </p>
           <p className="mt-4 text-base leading-7 text-muted">
-            No company history. No marketing. Just tools that earn their place
-            by staying small, stable, and easy to understand.
+            We keep the tools small enough to read, honest enough to keep,
+            and easy enough to replace. Not because small is pretty. Because
+            small is what lasts.
+          </p>
+          <p className="mt-4 text-base leading-7 text-muted">
+            libnudget is a company of{" "}
+            <a
+              href="https://github.com/palmshed"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-accent underline-offset-4 transition-colors hover:underline"
+            >
+              Palmshed
+            </a>
+            , which builds open-source AI tools, agents, and SDKs. Where
+            Palmshed builds the ambitious things, libnudget keeps the small
+            ones neat. The same quiet way of working runs through both.
           </p>
           <ul className="mt-10 flex flex-col gap-3">
             {principles.map((principle) => (
