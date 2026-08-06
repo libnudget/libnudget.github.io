@@ -9,16 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Appearance theme switcher (System / Light / Dark) with no-flash loading,
-  `localStorage` persistence, and reduced-motion support
-- Status badges on project pages
+- Founding v0.1.0 releases for all eight projects, with real installation
+  commands and release/activity listings.
 
 ### Changed
 
-- Project installation commands replaced with
-  "Available in the first public release" until first releases exist
-- Removed placeholder release versions and recency claims from the Activity
-  section until projects are actually released
+- Project statuses updated from "In development" to their shipped state;
+  installation commands now point at the v0.1.0 releases.
+- Category counts reflect the eight shipped projects.
 
 ## [1.0.0] - 2026-08-07
 

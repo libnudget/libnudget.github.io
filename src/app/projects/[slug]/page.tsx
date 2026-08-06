@@ -90,15 +90,9 @@ export default async function ProjectPage({
               <h2 className="text-2xl font-semibold tracking-tight">
                 Installation
               </h2>
-              {project.status === "In development" ? (
-                <p className="mt-4 text-base leading-7 text-muted">
-                  {project.installation}
-                </p>
-              ) : (
-                <pre className="mt-4 overflow-x-auto rounded-xl border border-line bg-[#fafafa] p-5 font-mono text-sm leading-6 text-foreground">
-                  <code>{project.installation}</code>
-                </pre>
-              )}
+              <pre className="mt-4 overflow-x-auto rounded-xl border border-line bg-muted/10 p-5 font-mono text-sm leading-6 text-foreground">
+                <code>{project.installation}</code>
+              </pre>
             </section>
           </div>
 

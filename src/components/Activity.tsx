@@ -20,7 +20,7 @@ export default function Activity() {
                 if (!project) return null
                 return (
                   <li
-                    key={release.version}
+                    key={`${release.version}-${release.slug}`}
                     className="flex items-center justify-between border-b border-line py-3.5 last:border-b-0"
                   >
                     <span className="font-mono text-sm text-accent">
@@ -51,7 +51,7 @@ export default function Activity() {
                 if (!project) return null
                 return (
                   <li
-                    key={activity.label}
+                    key={activity.slug}
                     className="flex items-center justify-between border-b border-line py-3.5 last:border-b-0"
                   >
                     <span className="text-sm text-muted">{activity.label}</span>
