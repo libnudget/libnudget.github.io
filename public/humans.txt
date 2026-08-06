@@ -1,0 +1,16 @@
+/* TEAM */
+
+libnudget
+Quiet, independent developers who believe in small tools.
+
+Site: https://libnudget.github.io
+GitHub: https://github.com/libnudget
+
+/* THANKS */
+
+Everyone who builds and shares small, focused software.
+
+/* SITE */
+
+Standards: HTML5, CSS3
+Software: Next.js, Tailwind CSS
