@@ -6,6 +6,16 @@
   --line: #ececec;
   --muted: #6b7280;
   --accent: #1f883d;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0d1117;
+  --foreground: #e6edf3;
+  --line: #30363d;
+  --muted: #8b949e;
+  --accent: #3fb950;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -15,6 +25,34 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  header,
+  nav,
+  main,
+  section,
+  footer,
+  a,
+  button,
+  div,
+  p,
+  span,
+  li,
+  ul,
+  ol,
+  h1,
+  h2,
+  h3,
+  input,
+  label,
+  pre,
+  code {
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+  }
 }
 
 body {

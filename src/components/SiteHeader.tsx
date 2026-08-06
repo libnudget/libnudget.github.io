@@ -1,4 +1,5 @@
 import Link from "next/link"
+import ThemeSwitch from "./ThemeSwitch"
 
 const nav = [
   { href: "/#projects", label: "Projects" },
@@ -36,6 +37,7 @@ export default function SiteHeader() {
           >
             GitHub
           </a>
+          <ThemeSwitch />
         </nav>
       </div>
     </header>

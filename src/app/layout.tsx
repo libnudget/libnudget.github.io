@@ -20,7 +20,10 @@ const organizationSchema = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1f883d",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0d1117" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 }
 
 export const metadata: Metadata = {
@@ -65,6 +68,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+  try {
+    var t = localStorage.getItem("libnudget:theme") || "system";
+    var dark =
+      t === "dark" ||
+      (t === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.classList.add(dark ? "dark" : "light");
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", dark ? "#0d1117" : "#ffffff");
+  } catch (e) {}
+})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
