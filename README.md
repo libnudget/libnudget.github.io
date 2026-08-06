@@ -62,13 +62,14 @@ All content lives in typed data files under `src/lib/`, and interactivity
 ## Deployment
 
 Deployment is automatic via GitHub Actions (`.github/workflows/deploy.yml`).
-On every push to `main`, the site is built and published to GitHub Pages.
+On every push to `main`, the site is built and the static output is pushed to
+the `gh-pages` branch, which GitHub Pages serves.
 
 ### One-time setup
 
 1. Create the repository and name it **`libnudget.github.io`**.
 2. In **Settings → Pages → Build and deployment**, set **Source** to
-   **GitHub Actions**.
+   **Deploy from a branch** and choose the **`gh-pages`** branch.
 3. Push to `main`. The `Deploy to GitHub Pages` workflow builds the site and
    publishes it to [https://libnudget.github.io](https://libnudget.github.io).
 
@@ -78,9 +79,8 @@ After that, every push to `main` updates the site with no manual steps.
 
 The workflow uses the official GitHub Actions:
 
-- `actions/configure-pages@v6`
-- `actions/upload-pages-artifact@v5`
-- `actions/deploy-pages@v5`
+- `actions/checkout@v4`
+- `actions/setup-node@v4`
 
 ## Project layout
 
