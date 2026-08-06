@@ -81,7 +81,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/clipb",
     overview:
       "clipb copies file paths to the system clipboard without leaving your terminal. It prints the copied paths back to stdout so you can chain it into other commands, and it handles spaces, symlinks, and relative paths correctly. No wrappers, no daemons, no bloat.",
-    installation: "cargo install --git https://github.com/libnudget/clipb --tag v0.1.0",
+    installation: "cargo install --git https://github.com/libnudget/clipb",
     license: "MIT",
     status: "Stable",
     related: ["dotenv-keep", "craft"],
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/craft",
     overview:
       "craft explores installing tools as single, signed binaries without package-manager lock-in. It is an experiment: the interface may change, and the philosophy is being tested. Try it, break it, and tell us what you find.",
-    installation: "cargo install --git https://github.com/libnudget/craft --tag v0.1.0",
+    installation: "cargo install --git https://github.com/libnudget/craft",
     license: "MIT",
     status: "Experimental",
     related: ["clipb"],
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/dotenv-keep",
     overview:
       "dotenv-keep compares your .env.example against the variables referenced in your code and reports names that are missing, unused, or drifted. It catches the silent misconfig that only shows up in production.",
-    installation: "pip install git+https://github.com/libnudget/dotenv-keep@v0.1.0",
+    installation: "pip install git+https://github.com/libnudget/dotenv-keep",
     license: "MIT",
     status: "Stable",
     related: ["clipb"],
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/mini",
     overview:
       "mini is a single-file HTTP client with no third-party dependencies. It keeps memory use small enough for embedded runtimes, exposes a straightforward request/response API, and can be vendored directly into any project.",
-    installation: "go get github.com/libnudget/mini@v0.1.0",
+    installation: "go get github.com/libnudget/mini@latest",
     license: "MIT",
     status: "Stable",
     related: ["startkit"],
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/startkit",
     overview:
       "startkit gives you a publish-ready library with nothing beyond the essentials: a test runner, a linter, and a release script. Run it, rename it, and ship. It follows the libnudget principles by making the small choices for you.",
-    installation: "npx --yes github:libnudget/startkit#v0.1.0 mylib",
+    installation: "npx --yes github:libnudget/startkit mylib",
     license: "MIT",
     status: "Stable",
     related: ["mini"],
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/release-notes",
     overview:
       "release-notes reads the commits merged between two tags, groups them by conventional-commit type, and writes a markdown file you can attach to a GitHub release. It keeps the changelog honest without a dedicated changelog tool in the repo.",
-    installation: "- uses: libnudget/release-notes@v0.1.0",
+    installation: "- uses: libnudget/release-notes@main",
     license: "MIT",
     status: "Stable",
     related: ["gh-tag"],
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/fmtcheck",
     overview:
       "fmtcheck runs your language's canonical formatter in check mode and fails the build on any diff. Formatting debates stay out of code review because the machine settles them in CI. Zero configuration for the common case.",
-    installation: "- uses: libnudget/fmtcheck@v0.1.0",
+    installation: "- uses: libnudget/fmtcheck@main",
     license: "MIT",
     status: "Stable",
     related: ["release-notes", "rust-fix"],
@@ -178,8 +178,8 @@ export const projects: Project[] = [
     category: "GitHub Action",
     github: "https://github.com/libnudget/gh-tag",
     overview:
-      "gh-tag creates annotated semver tags from your release notes in CI, without storing credentials in plaintext. It pairs with release-notes to turn a push into a fully tagged release.",
-    installation: "- uses: libnudget/gh-tag@v0.1.0",
+      "gh-tag checks whether a tag already exists, creates it as an annotated semver tag pointing at the current commit, and reports whether it was created. It pairs with release-notes to turn a push into a fully tagged release.",
+    installation: "- uses: libnudget/gh-tag@main",
     license: "MIT",
     status: "Stable",
     related: ["release-notes", "release"],
