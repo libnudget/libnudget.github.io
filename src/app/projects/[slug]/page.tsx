@@ -63,9 +63,15 @@ export default async function ProjectPage({
           <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
             {project.description}
           </p>
-          <p className="mt-6 text-xs font-medium uppercase tracking-wider text-foreground/50">
-            {project.language} • {project.category}
-          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <span className="text-xs font-medium uppercase tracking-wider text-foreground/50">
+              {project.language} • {project.category}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-xs font-medium text-muted">
+              <span className="size-1.5 rounded-full bg-accent" />
+              Status: {project.status}
+            </span>
+          </div>
         </div>
       </div>
 
@@ -84,9 +90,15 @@ export default async function ProjectPage({
               <h2 className="text-2xl font-semibold tracking-tight">
                 Installation
               </h2>
-              <pre className="mt-4 overflow-x-auto rounded-xl border border-line bg-[#fafafa] p-5 font-mono text-sm leading-6 text-foreground">
-                <code>{project.installation}</code>
-              </pre>
+              {project.status === "In development" ? (
+                <p className="mt-4 text-base leading-7 text-muted">
+                  {project.installation}
+                </p>
+              ) : (
+                <pre className="mt-4 overflow-x-auto rounded-xl border border-line bg-[#fafafa] p-5 font-mono text-sm leading-6 text-foreground">
+                  <code>{project.installation}</code>
+                </pre>
+              )}
             </section>
           </div>
 
@@ -117,9 +129,13 @@ export default async function ProjectPage({
                   <dt className="text-sm text-muted">Language</dt>
                   <dd className="text-sm font-medium">{project.language}</dd>
                 </div>
-                <div className="flex items-center justify-between py-3">
+                <div className="flex items-center justify-between border-b border-line py-3">
                   <dt className="text-sm text-muted">Type</dt>
                   <dd className="text-sm font-medium">{project.category}</dd>
+                </div>
+                <div className="flex items-center justify-between py-3">
+                  <dt className="text-sm text-muted">Status</dt>
+                  <dd className="text-sm font-medium">{project.status}</dd>
                 </div>
               </dl>
             </div>

@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Appearance theme switcher (System / Light / Dark) with no-flash loading,
+  `localStorage` persistence, and reduced-motion support
+- Status badges on project pages
+
+### Changed
+
+- Project installation commands replaced with
+  "Available in the first public release" until first releases exist
+- Removed placeholder release versions and recency claims from the Activity
+  section until projects are actually released
+
 ## [1.0.0] - 2026-08-07
 
 Initial release of the libnudget website.
