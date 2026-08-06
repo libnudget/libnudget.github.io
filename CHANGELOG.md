@@ -9,14 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Founding v0.1.0 releases for all eight projects, with real installation
+- Founding v0.1.0 releases for the eight new tools, with real installation
   commands and release/activity listings.
+- The complete org collection is now listed: the existing GitHub Actions
+  (release, stale, auto-merge, auto-label, title, cancel, lock, prune,
+  rust-fix, bump, echo), reusable workflows (gon, nightly,
+  rust-nightly, release-assets, activity, bot), and the new tools.
 
 ### Changed
 
-- Project statuses updated from "In development" to their shipped state;
-  installation commands now point at the v0.1.0 releases.
-- Category counts reflect the eight shipped projects.
+- Project statuses updated from "In development" to their shipped states;
+  installation commands now point at real releases.
+- Category counts reflect the full org collection.
+- Language filters extended for Shell and YAML workflows.
 
 ## [1.0.0] - 2026-08-07
 

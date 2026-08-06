@@ -1,4 +1,10 @@
-export type Language = "Rust" | "Go" | "TypeScript" | "Python"
+export type Language =
+  | "Rust"
+  | "Go"
+  | "TypeScript"
+  | "Python"
+  | "Shell"
+  | "YAML"
 
 export type Category =
   "CLI" | "GitHub Action" | "Library" | "Template" | "Experiment"
@@ -24,7 +30,14 @@ export function getProject(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug)
 }
 
-export const languages: Language[] = ["Rust", "Go", "TypeScript", "Python"]
+export const languages: Language[] = [
+  "Rust",
+  "Go",
+  "TypeScript",
+  "Python",
+  "Shell",
+  "YAML",
+]
 
 export const categories: {
   name: SectionCategory
@@ -38,8 +51,8 @@ export const categories: {
   },
   {
     name: "GitHub",
-    blurb: "Actions, Apps, and automation.",
-    count: 3,
+    blurb: "Actions, reusable workflows, and automation.",
+    count: 20,
   },
   {
     name: "Libraries",
@@ -68,39 +81,38 @@ export const projects: Project[] = [
     github: "https://github.com/libnudget/clipb",
     overview:
       "clipb copies file paths to the system clipboard without leaving your terminal. It prints the copied paths back to stdout so you can chain it into other commands, and it handles spaces, symlinks, and relative paths correctly. No wrappers, no daemons, no bloat.",
-    installation:
-      "cargo install --git https://github.com/libnudget/clipb --tag v0.1.0",
+    installation: "cargo install --git https://github.com/libnudget/clipb --tag v0.1.0",
     license: "MIT",
     status: "Stable",
     related: ["dotenv-keep", "craft"],
   },
   {
-    name: "release-notes",
-    slug: "release-notes",
-    description: "GitHub Action for generating release notes.",
-    language: "TypeScript",
-    category: "GitHub Action",
-    github: "https://github.com/libnudget/release-notes",
+    name: "craft",
+    slug: "craft",
+    description: "Experimental Rust developer tool.",
+    language: "Rust",
+    category: "Experiment",
+    github: "https://github.com/libnudget/craft",
     overview:
-      "release-notes reads the pull requests merged between two tags, groups them by conventional-commit type, and writes a markdown file you can attach to a GitHub release. It keeps the changelog honest without a dedicated changelog tool in the repo.",
-    installation: "- uses: libnudget/release-notes@v0.1.0",
+      "craft explores installing tools as single, signed binaries without package-manager lock-in. It is an experiment: the interface may change, and the philosophy is being tested. Try it, break it, and tell us what you find.",
+    installation: "cargo install --git https://github.com/libnudget/craft --tag v0.1.0",
     license: "MIT",
-    status: "Stable",
-    related: ["gh-tag"],
+    status: "Experimental",
+    related: ["clipb"],
   },
   {
-    name: "fmtcheck",
-    slug: "fmtcheck",
-    description: "GitHub Action for formatting checks.",
-    language: "Go",
-    category: "GitHub Action",
-    github: "https://github.com/libnudget/fmtcheck",
+    name: "dotenv-keep",
+    slug: "dotenv-keep",
+    description: "Keep and manage `.env` files safely.",
+    language: "Python",
+    category: "CLI",
+    github: "https://github.com/libnudget/dotenv-keep",
     overview:
-      "fmtcheck runs your language's canonical formatter in check mode and fails the build on any diff. Formatting debates stay out of code review because the machine settles them in CI. Zero configuration for the common case.",
-    installation: "- uses: libnudget/fmtcheck@v0.1.0",
+      "dotenv-keep compares your .env.example against the variables referenced in your code and reports names that are missing, unused, or drifted. It catches the silent misconfig that only shows up in production.",
+    installation: "pip install git+https://github.com/libnudget/dotenv-keep@v0.1.0",
     license: "MIT",
     status: "Stable",
-    related: ["release-notes", "mini"],
+    related: ["clipb"],
   },
   {
     name: "mini",
@@ -131,34 +143,32 @@ export const projects: Project[] = [
     related: ["mini"],
   },
   {
-    name: "craft",
-    slug: "craft",
-    description: "Experimental Rust developer tool.",
-    language: "Rust",
-    category: "Experiment",
-    github: "https://github.com/libnudget/craft",
+    name: "release-notes",
+    slug: "release-notes",
+    description: "GitHub Action for generating release notes.",
+    language: "TypeScript",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/release-notes",
     overview:
-      "craft explores installing tools as single, signed binaries without package-manager lock-in. It is an experiment: the interface may change, and the philosophy is being tested. Try it, break it, and tell us what you find.",
-    installation:
-      "cargo install --git https://github.com/libnudget/craft --tag v0.1.0",
-    license: "MIT",
-    status: "Experimental",
-    related: ["clipb"],
-  },
-  {
-    name: "dotenv-keep",
-    slug: "dotenv-keep",
-    description: "Keep and manage `.env` files safely.",
-    language: "Python",
-    category: "CLI",
-    github: "https://github.com/libnudget/dotenv-keep",
-    overview:
-      "dotenv-keep compares your .env.example against the variables referenced in your code and reports names that are missing, unused, or drifted. It catches the silent misconfig that only shows up in production.",
-    installation:
-      "pip install git+https://github.com/libnudget/dotenv-keep@v0.1.0",
+      "release-notes reads the commits merged between two tags, groups them by conventional-commit type, and writes a markdown file you can attach to a GitHub release. It keeps the changelog honest without a dedicated changelog tool in the repo.",
+    installation: "- uses: libnudget/release-notes@v0.1.0",
     license: "MIT",
     status: "Stable",
-    related: ["clipb"],
+    related: ["gh-tag"],
+  },
+  {
+    name: "fmtcheck",
+    slug: "fmtcheck",
+    description: "GitHub Action for formatting checks.",
+    language: "Go",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/fmtcheck",
+    overview:
+      "fmtcheck runs your language's canonical formatter in check mode and fails the build on any diff. Formatting debates stay out of code review because the machine settles them in CI. Zero configuration for the common case.",
+    installation: "- uses: libnudget/fmtcheck@v0.1.0",
+    license: "MIT",
+    status: "Stable",
+    related: ["release-notes", "rust-fix"],
   },
   {
     name: "gh-tag",
@@ -172,7 +182,245 @@ export const projects: Project[] = [
     installation: "- uses: libnudget/gh-tag@v0.1.0",
     license: "MIT",
     status: "Stable",
-    related: ["release-notes"],
+    related: ["release-notes", "release"],
+  },
+  {
+    name: "release",
+    slug: "release",
+    description: "Runs release automation.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/release",
+    overview:
+      "An automated release workflow for multi-package repositories. release analyzes commits since the last release tag, determines the version bump type (major, minor, or patch), and can create a release PR, commit and tag directly, or wait for a merge before tagging.",
+    installation: "- uses: libnudget/release@v1.0.0",
+    license: "MIT",
+    status: "Stable",
+    related: ["bump", "gh-tag"],
+  },
+  {
+    name: "stale",
+    slug: "stale",
+    description: "Closes stale issues.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/stale",
+    overview:
+      "A reusable action that closes stale issues after a period of inactivity, so the issue list stays honest and current.",
+    installation: "- uses: libnudget/stale@v1",
+    license: "MIT",
+    status: "Stable",
+    related: [],
+  },
+  {
+    name: "auto-merge",
+    slug: "auto-merge",
+    description: "Merges pull requests automatically.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/auto-merge",
+    overview:
+      "Enables or disables auto-merge on pull requests. It can wait for checks to pass, cancel auto-merge, or merge immediately.",
+    installation: "- uses: libnudget/auto-merge@v1",
+    license: "MIT",
+    status: "Stable",
+    related: ["lock"],
+  },
+  {
+    name: "title",
+    slug: "title",
+    description: "Fixes pull request titles.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/title",
+    overview:
+      "Rewrites pull request titles into a conventional format, so commit history and changelogs line up without hand-editing.",
+    installation: "- uses: libnudget/title@v1",
+    license: "MIT",
+    status: "Stable",
+    related: ["prune"],
+  },
+  {
+    name: "cancel",
+    slug: "cancel",
+    description: "Cancels workflow runs.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/cancel",
+    overview:
+      "Cancels in-progress and queued workflow runs for a branch, so superseded CI stops wasting runner time.",
+    installation: "- uses: libnudget/cancel@v1",
+    license: "MIT",
+    status: "Stable",
+    related: [],
+  },
+  {
+    name: "lock",
+    slug: "lock",
+    description: "Locks merged pull requests.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/lock",
+    overview:
+      "Locks merged pull requests after a configurable delay, keeping conversation concentrated on open work.",
+    installation: "- uses: libnudget/lock@v1",
+    license: "MIT",
+    status: "Stable",
+    related: ["stale"],
+  },
+  {
+    name: "auto-label",
+    slug: "auto-label",
+    description: "Labels issues and pull requests.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/auto-label",
+    overview:
+      "Labels issues and pull requests automatically based on commits, changed files, and the shape of the change.",
+    installation: "- uses: libnudget/auto-label@v2",
+    license: "MIT",
+    status: "Stable",
+    related: ["title"],
+  },
+  {
+    name: "prune",
+    slug: "prune",
+    description: "Normalizes pull request descriptions.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/prune",
+    overview:
+      "Writes a pull request description from the actual diff, so reviewers always have an accurate summary of what changed.",
+    installation: "- uses: libnudget/prune@v1",
+    license: "MIT",
+    status: "Stable",
+    related: ["title"],
+  },
+  {
+    name: "rust-fix",
+    slug: "rust-fix",
+    description: "Applies Rust code fixes.",
+    language: "Rust",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/rust-fix",
+    overview:
+      "Auto-fixes Rust code with cargo fmt and clippy and opens a fix as a pull request, keeping the formatting debate out of review.",
+    installation: "- uses: libnudget/rust-fix@v1",
+    license: "MIT",
+    status: "Stable",
+    related: ["fmtcheck"],
+  },
+  {
+    name: "bump",
+    slug: "bump",
+    description: "Automates version bumps.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/bump",
+    overview:
+      "Orchestrates version bumps after merged pull requests, handling the version-bump PR, tagging, and release flow as one reusable action.",
+    installation: "- uses: libnudget/bump@main",
+    license: "MIT",
+    status: "Stable",
+    related: ["release", "gh-tag"],
+  },
+  {
+    name: "echo",
+    slug: "echo",
+    description: "Suggests related issues.",
+    language: "Python",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/echo",
+    overview:
+      "Suggests potentially similar existing issues and posts a triage comment, so duplicates are spotted before the queue grows.",
+    installation: "- uses: libnudget/echo@main",
+    license: "MIT",
+    status: "Stable",
+    related: ["auto-label"],
+  },
+  {
+    name: "gon",
+    slug: "gon",
+    description: "Reviews Dependabot pull requests.",
+    language: "Python",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/gon",
+    overview:
+      "A calm reusable workflow that gently reviews Dependabot pull requests and provides clear summaries to help you merge confidently.",
+    installation: "uses: libnudget/gon/.github/workflows/gon.yml@main",
+    license: "MIT",
+    status: "Stable",
+    related: ["auto-merge"],
+  },
+  {
+    name: "nightly",
+    slug: "nightly",
+    description: "Builds Flutter desktop nightlies.",
+    language: "YAML",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/nightly",
+    overview:
+      "A reusable workflow that builds Flutter desktop apps overnight, only when there are new commits since the last nightly, and tags each build with a dated tag.",
+    installation: "- uses: libnudget/nightly/.github/workflows/nightly.yml@main",
+    license: "MIT",
+    status: "Stable",
+    related: [],
+  },
+  {
+    name: "rust-nightly",
+    slug: "rust-nightly",
+    description: "Builds Rust nightlies.",
+    language: "YAML",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/rust-nightly",
+    overview:
+      "A reusable nightly workflow for Rust projects: runs the full test suite with all features, builds in release mode, and can upload coverage.",
+    installation: "- uses: libnudget/rust-nightly/.github/workflows/nightly.yml@main",
+    license: "MIT",
+    status: "Stable",
+    related: ["fmtcheck"],
+  },
+  {
+    name: "release-assets",
+    slug: "release-assets",
+    description: "Builds signed release assets.",
+    language: "Python",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/release-assets",
+    overview:
+      "A reusable workflow that builds, packages, signs, smoke-tests, and publishes release assets for CLI tools across a platform matrix.",
+    installation: "- uses: libnudget/release-assets/.github/workflows/release-assets.yml@main",
+    license: "MIT",
+    status: "Stable",
+    related: ["release", "rust-fix"],
+  },
+  {
+    name: "activity",
+    slug: "activity",
+    description: "Tracks project activity.",
+    language: "YAML",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/activity",
+    overview:
+      "A reusable workflow that tracks project activity in a central issue, giving a single place to see what moved across a repository.",
+    installation: "- uses: libnudget/activity/.github/workflows/tracking.yml@main",
+    license: "MIT",
+    status: "Stable",
+    related: [],
+  },
+  {
+    name: "bot",
+    slug: "bot",
+    description: "Bot identity for automation.",
+    language: "Shell",
+    category: "GitHub Action",
+    github: "https://github.com/libnudget/bot",
+    overview:
+      "A programmable GitHub bot used for automated commits. It provides an action that commits changes under a dedicated bot identity with a stable avatar.",
+    installation: "- uses: libnudget/bot/actions/commit@v1",
+    license: "MIT",
+    status: "Stable",
+    related: ["prune", "rust-fix"],
   },
 ]
 
@@ -190,6 +438,7 @@ export const releases: Release[] = [
   { version: "v0.1.0", slug: "mini" },
   { version: "v0.1.0", slug: "release-notes" },
   { version: "v0.1.0", slug: "startkit" },
+  { version: "v1.0.0", slug: "release" },
 ]
 
 export type Activity = {
@@ -198,14 +447,14 @@ export type Activity = {
 }
 
 export const recentlyUpdated: Activity[] = [
-  { label: "Initial release", slug: "clipb" },
-  { label: "Initial release", slug: "craft" },
-  { label: "Initial release", slug: "dotenv-keep" },
-  { label: "Initial release", slug: "fmtcheck" },
-  { label: "Initial release", slug: "gh-tag" },
-  { label: "Initial release", slug: "mini" },
-  { label: "Initial release", slug: "release-notes" },
-  { label: "Initial release", slug: "startkit" },
+  { label: "Recent", slug: "clipb" },
+  { label: "Recent", slug: "craft" },
+  { label: "Recent", slug: "dotenv-keep" },
+  { label: "Recent", slug: "fmtcheck" },
+  { label: "Recent", slug: "gh-tag" },
+  { label: "Recent", slug: "mini" },
+  { label: "Recent", slug: "release-notes" },
+  { label: "Recent", slug: "startkit" },
 ]
 
 export const philosophy = [
@@ -236,5 +485,11 @@ export const principles = [
 
 export const searchFilters = {
   languages,
-  categories: ["CLI", "GitHub Action", "Library", "Template"] as Category[],
+  categories: [
+    "CLI",
+    "GitHub Action",
+    "Library",
+    "Template",
+    "Experiment",
+  ] as Category[],
 }
