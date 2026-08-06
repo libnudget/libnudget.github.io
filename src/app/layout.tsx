@@ -20,10 +20,7 @@ const organizationSchema = {
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0d1117" },
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-  ],
+  themeColor: "#ffffff",
 }
 
 export const metadata: Metadata = {

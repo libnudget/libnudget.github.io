@@ -19,26 +19,28 @@ export default function SiteHeader() {
         >
           libnudget
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="flex items-center gap-2">
+          <nav className="hidden items-center gap-8 md:flex">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           <a
             href="https://github.com/libnudget"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md border border-line px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-foreground"
+            className="hidden rounded-md border border-line px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-foreground md:inline-block"
           >
             GitHub
           </a>
           <ThemeSwitch />
-        </nav>
+        </div>
       </div>
     </header>
   )
